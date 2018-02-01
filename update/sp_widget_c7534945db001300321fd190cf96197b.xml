@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[ function($scope) {
+    $scope.names = [
+        {name:'Jani',country:'Norway'},
+        {name:'Carl',country:'Sweden'},
+        {name:'Margareth',country:'England'},
+        {name:'Hege',country:'Norway'},
+        {name:'Joe',country:'Denmark'},
+        {name:'Gustav',country:'Sweden'},
+        {name:'Birgit',country:'Denmark'},
+        {name:'Mary',country:'England'},
+        {name:'Kai',country:'Norway'}
+        ];
+    $scope.orderByMe = function(x) {
+        $scope.myOrderBy = x;
+    }
+ }]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>ascending_descending_task</id>
+        <internal>false</internal>
+        <link/>
+        <name>ascending descending task</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-02-01 05:53:13</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c7534945db001300321fd190cf96197b</sys_id>
+        <sys_mod_count>32</sys_mod_count>
+        <sys_name>ascending descending task</sys_name>
+        <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
+        <sys_update_name>sp_widget_c7534945db001300321fd190cf96197b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-02-01 10:11:18</sys_updated_on>
+        <template><![CDATA[<table border="1" width="100%">
+<tr>
+  <div>
+    
+  
+ Asc  <input type='text' ng-model='name'>
+  <div ng-if="name=='ascending'" ng-repeat="x in names|orderBy:'name'">
+    {{x.name}}
+  </div>
+  <div ng-if="name=='descending'" ng-repeat="x in names|orderBy:'-name'">
+    {{x.name}}
+  </div><br><br>
+  
+ Up <input type='text' ng-model='upper'>
+  <div ng-if="upper=='uppercase'" ng-repeat="x in names">
+    {{x.name|uppercase}}
+  </div>
+  <div ng-if="upper=='lowercase'" ng-repeat="x in names">
+    {{x.name|lowercase}}
+  </div><br><br>
+  
+  
+ Country  <input type='text' ng-model='fill'>
+  <div>
+ <li ng-repeat="x in names| filter:fill">
+    {{ x.country}}</li>
+  </div><br><br>
+  
+ 
+  Name <input type='text' ng-model='filler'>
+  <div>
+ <li ng-repeat="x in names| filter:filler">
+    {{ x.name}}</li>
+  </div>
+  
+  
+  </div>
+  
+
+</tr>
+</table>]]></template>
+    </sp_widget>
+</record_update>
